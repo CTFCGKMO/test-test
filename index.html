@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOKMCP | The 7-Day Strategy Sprint for Mid-Markets</title>
+    <style>
+        :root {
+            --primary-dark: #0f172a;
+            --accent-blue: #1d4ed8;
+            --link-blue: #1155cc;
+            --text-gray: #475569;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-gray);
+            line-height: 1.6;
+            background: var(--bg-white);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -1px;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary-dark);
+            color: white;
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(29,78,216,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(29,78,216,0.4);
+        }
+
+        /* Stats Bar */
+        .stats {
+            background: var(--bg-light);
+            padding: 3rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Difference Section */
+        .difference {
+            background: var(--bg-light);
+        }
+
+        .difference-box {
+            background: var(--bg-white);
+            border-left: 4px solid var(--accent-blue);
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        .difference-box strong {
+            color: var(--primary-dark);
+        }
+
+        /* Methodology */
+        .methodology {
+            text-align: center;
+            background: var(--primary-dark);
+            color: white;
+            max-width: 100%;
+            padding: 5rem 2rem;
+        }
+
+        .methodology h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .methodology p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+        }
+
+        .methodology .lead {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+            background: var(--bg-white);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+
+        .service-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--bg-light);
+            color: var(--text-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .result {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-weight: 700;
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--bg-light);
+            max-width: 100%;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: var(--bg-white);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--primary-dark);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-mark">O</div>
+                <span class="logo-text">OOKMCP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>The 7-Day Strategy Sprint.</h1>
+            <p class="subtitle">Enterprise Architecture, Agentic AI, and Zero Trust Roadmaps for the NextGen Digital Ecosystem.</p>
+            <a href="#contact" class="cta-button">Stop Hourly Billing: Get 7-Day Results</a>
+        </div>
+    </header>
+
+    <!-- Stats -->
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>80%</h3>
+                <p>Reduction in Time-to-Value (TTV) through strategic roadmapping</p>
+            </div>
+            <div class="stat-item">
+                <h3>75%</h3>
+                <p>Reduction in Workforce Overhead through AI Orchestration</p>
+            </div>
+            <div class="stat-item">
+                <h3>$1B+</h3>
+                <p>in Managed Digital Portfolios</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Difference -->
+    <section class="difference">
+        <div class="section-header">
+            <h2>The OOKMCP Difference</h2>
+        </div>
+        <div class="difference-box">
+            <p>Every deliverable is backed by <strong>80+ years of EA experience</strong> and a track record of managing <strong>$1B+ portfolios</strong>. We don't just deliver documents; we deliver <strong>RaaS (Result as a Service)</strong>.</p>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="methodology" id="methodology">
+        <p class="lead">THE RAAS METHODOLOGY</p>
+        <h2>Tell us what you need. We deliver the result.</h2>
+        <p>Traditional consulting is slow. OOKMCP operates on the <strong>Result as a Service (RaaS)</strong> model framework. We remove the friction of long-term contracts and replace them with rapid, high-impact deliverables that move your business forward immediately.</p>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="section-header">
+            <h2>OUR SERVICES</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Vision & Mission</h3>
+                <p>Aligns leadership on purpose and direction.</p>
+                <div class="tags">
+                    <span class="tag">Public Sector</span>
+                    <span class="tag">Private Sector</span>
+                </div>
+                <p style="font-size:0.9rem;"><strong>Public:</strong> statutory mandates, executive orders, congressional intent.<br><br>
+                <strong>Private:</strong> market positioning, competitive differentiation, investor narratives.</p>
+                <div class="result">Result: Organizational Alignment</div>
+            </div>
+
+            <div class="service-card">
+                <h3>Strategies</h3>
+                <p>Turns vision into executable direction.</p>
+                <div class="tags">
+                    <span class="tag">NIST 800-207</span>
+                    <span class="tag">FedRAMP</span>
+                    <span class="tag">CMMC</span>
+                </div>
+                <p style="font-size:0.9rem;">Compliance alignment, budget cycles, acquisition strategies, growth vectors, and technology adoption roadmaps that actually get used.</p>
+                <div class="result">Result: Market Dominance</div>
+            </div>
+
+            <div class="service-card">
+                <h3>Roadmaps & Plans</h3>
+                <p>Bridges strategy and execution with time-bound, resource-loaded timelines.</p>
+                <div class="tags">
+                    <span class="tag">OMB Exhibit 300</span>
+                    <span class="tag">Product Launch</span>
+                </div>
+                <p style="font-size:0.9rem;">Acquisition schedules, authorization timelines, capital deployment, and integration milestones.</p>
+                <div class="result">Result: Strategic Arrival</div>
+            </div>
+
+            <div class="service-card">
+                <h3>Process Models</h3>
+                <p>Makes operations repeatable and auditable.</p>
+                <div class="tags">
+                    <span class="tag">DevSecOps</span>
+                    <span class="tag">Compliance Automation</span>
+                </div>
+                <p style="font-size:0.9rem;">Continuous monitoring, incident response, DevSecOps pipelines, and service delivery automation.</p>
+                <div class="result">Result: Scalable Efficiency</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="faq-container">
+            <div class="section-header">
+                <h2>FAQ</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How to reduce workforce overhead in Fintech without layoffs?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    OOKMCP utilizes AI Orchestration and the Result as a Service (RaaS) model to reduce workforce overhead by 75%. By automating legacy process models and future-state workflows, we eliminate operational friction and technical debt, moving organizations from ambiguity to structured, data-backed execution without reducing headcount.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is the fastest way to implement NIST 800-207 Zero Trust?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    The fastest method is the OOKMCP 7-Day Strategy Sprint, which delivers a complete NIST 800-207 Zero Trust implementation roadmap in exactly one week. This high-velocity approach replaces slow, legacy labor with a strategic arrival, providing a secure foundation for global enterprises managing $1B+ digital portfolios.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Result as a Service vs traditional consulting: Which is better for ROI?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Result as a Service (RaaS) offers superior ROI through a fixed $5,000 price point and an 80% reduction in Time-to-Value (TTV). Unlike traditional consulting, which suffers from an "Expertise Gap" and open-ended contracts, RaaS provides rapid, high-impact deliverables with a 99.9% accuracy promise and no manual labor required from the client.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <h2>Get My 7-Day NIST 800-207 Roadmap</h2>
+        <div class="price-tag">$5,000 Fixed Price</div>
+        <br>
+        <a href="mailto:contact@ookmcp.com" class="cta-button">Start Your Sprint</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 OOKMCP. All rights reserved. | Result as a Service (RaaS)</p>
+    </footer>
+
+</body>
+</html>
